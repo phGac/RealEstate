@@ -1,0 +1,97 @@
+#login-container {
+    background-image: url('/img/login-bg.jpg');
+
+    width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 15px;
+	background-repeat: no-repeat;
+	background-position: center;
+    background-size: cover;
+    
+    & .login-wrap {
+        width: 500px;
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+
+        padding: 20px 55px;
+
+        & .input-wrap {
+            position: relative;
+            width: 100%;
+            border-bottom: 2px solid #d9d9d9;
+
+            & label {
+                font-size: 14px;
+                color: #333;
+                line-height: 1.5;
+                padding-left: 7px;
+            }
+
+            & input {
+                outline: none;
+                border: none;
+                font-size: 16px;
+                color: #333;
+                line-height: 1.2;
+                display: block;
+                width: 100%;
+                height: 55px;
+                background: 0 0;
+                padding: 0 7px 0 43px;
+            }
+
+            & span {
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+
+                &::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    bottom: -2px;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background: #7f7f7f;
+                    transition: all 0.4s;
+                  }
+            }
+
+            & input:focus + span::before {
+                width: 100%;
+            }
+            & input.has-val + span::before {
+                width: 100%;
+            }
+            & input:focus + span::after {
+                color: #a64bf4;
+            }
+            & input.has-val + span::after {
+                color: #a64bf4;
+            }
+        }
+
+        & .forgot {
+            text-align: right;
+            padding: 8px 0;
+
+            & a {
+                color: #666;
+    
+                &:hover {
+                    color: #a64bf4;
+                }
+            }
+        }
+    }
+}
