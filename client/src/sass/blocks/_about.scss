@@ -1,0 +1,109 @@
+#about {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    overflow: hidden;
+    
+    @include laptop {
+        flex-flow: row nowrap;
+        align-items: center;
+        padding: 40px;
+    }
+
+    & .about-text {
+        flex-grow: 2;
+        flex-basis: 40%;
+        padding: 10px;
+
+        @include mobile-xl {
+            margin-bottom: 30px;
+
+            @include tablet {
+                padding: 0 40px;
+            }
+        }
+
+        & h2 {
+            margin-bottom: 20px;
+        }
+        & p {
+            text-align: left;
+            font-size: 17px;
+            line-height: 30px;
+            color: rgb(48, 48, 48);
+        }
+    }
+
+    & .about-image {
+        flex-grow: 1;
+        flex-basis: 40%;
+        & .image img {
+            @include mobile-xl {
+                padding: 10px;
+            }
+
+            @include tablet {
+                border: 2px dashed red;
+            }
+        }
+    }
+
+    & .scotch {
+        position: absolute;
+        margin-top: -18px;
+        &:first-child {
+            margin-left: 20px;
+        }
+        &:nth-child(2) {
+            margin-left: 480px;
+        }
+    }
+}
+
+#agents {
+    margin-top: 50px;
+    @include tablet {
+        margin-top: 0;
+    }
+
+    & h2 {
+        text-align: center;
+        margin: 15px;
+        font-size: 35px;
+    }
+    
+    & > div {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+
+        @include laptop {
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+        }
+    }
+
+    & .agent {
+        text-align: center;
+        margin-bottom: 20px;
+
+        @include laptop {
+            width: 25%;
+        }
+
+        & .agent-image {
+            min-width: 250px;
+        }
+        & .agent-text {
+            font-size: 17px;
+            line-height: 30px;
+            color: rgb(48, 48, 48);
+
+            width: 100%;
+            padding: 3%;
+            @include tablet {
+                padding: 20px 10%;
+            }
+        }
+    }
+}

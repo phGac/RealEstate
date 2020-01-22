@@ -1,0 +1,9 @@
+:root {
+    --bg-search-container-principal: url("/img/hero-bg.jpg");
+    --bg-results-container: url("/img/pattern.png");
+    --bg-about-container: url("/img/pattern.png");
+}
+
+$bg-search-container-principal: var(--bg-search-container-principal);
+$bg-results-container: var(--bg-results-container);
+$bg-about-container: var(--bg-about-container);

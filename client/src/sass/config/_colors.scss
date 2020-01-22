@@ -1,0 +1,25 @@
+:root {
+    /* Header */
+    --header-bg-color: rgba(0, 0, 0, 0.7); //#251e1e75;
+    --header-text-color: #fff;
+    --header-menu-hover-color: red;
+
+    /* search */
+    --search-header-bg-color: rgba(34, 34, 34, 0.83); //#251e1e75;
+    --search-type-selected-color: #ff000a;
+    --search-bg-color: #254858;
+
+    --custom-select-color: #495057;
+    --text-color: #000; /* #eee */
+}
+
+$header-bg-color: var(--header-bg-color);
+$header-text-color: var(--header-text-color);
+$header-menu-hover-color: var(--header-menu-hover-color);
+
+$search-header-bg-color: var(--search-header-bg-color);
+$search-type-selected-color: var(--search-type-selected-color);
+$search-bg-color: var(--search-bg-color);
+
+$custom-select-color: var(--custon-select-color);
+$text-color: var(--text-color);

@@ -1,0 +1,14 @@
+
+#content-search {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+#content-about {
+    display: block;
+    background-image: $bg-about-container;
+    padding-top: 70px;
+    @include tablet {
+        padding-top: 100px;
+    }
+}

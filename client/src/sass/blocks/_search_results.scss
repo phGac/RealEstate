@@ -1,0 +1,58 @@
+#results {
+    flex-basis: 100%;
+    padding: 70px 10px;
+    background-image: $bg-results-container;
+
+    @include tablet {
+        padding: 70px 30px;
+    }
+    @include laptop {
+        padding: 100px 40px 20px 40px;
+    }
+
+    & .result {
+        display: flex;
+        flex-flow: row nowrap;
+        overflow: hidden;
+        margin-bottom: 20px;
+        border: 1px solid #8e291d;
+        box-shadow: -1px 1px 0 #8e291d, -2px 2px 0 #8e291d;
+        
+        @include laptop {
+            height: 180px;
+        }
+
+        & .picture {
+            & .info {
+                position: absolute;
+                margin-top: -42px;
+                padding-left: 10px;
+                border-top: 1px solid black;
+                border-right: 1px solid black;
+            }
+        }
+        & .wrap-info {
+            padding-left: 10px;
+            font-size: 14px;
+            & .property_info {
+                margin-top: 20px;
+                & > div {
+                    display: none;
+
+                    &.type {
+                        display: block;
+                        width: 100%;
+                    }
+
+                    @include mobile-xl {
+                        display: inline-block;
+                        width: 48%;
+                    }
+                }
+            }
+            & .post-info {
+                margin-top: 20px;
+            }
+        }
+    }
+}
