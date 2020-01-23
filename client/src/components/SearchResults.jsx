@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function SearchResults({ results }) {
     return (
@@ -13,7 +14,7 @@ function SearchResults({ results }) {
                         <span className="status">{result.property.status}</span>
                     </div>
                     </div>
-                    <div className="wrap-info">
+                    <Link to={`/search/post/${result.id}`} className="wrap-info">
                         <h3 className="direction">
                             {result.property.direction.number} {result.property.direction.street}, {result.property.direction.city}, {result.property.direction.state}
                         </h3>
@@ -26,7 +27,7 @@ function SearchResults({ results }) {
                         <div className="post-info">
                             <div className="time">{result.post.time}</div>
                         </div>
-                    </div>
+                    </Link>
                 </article>
             ))
         }

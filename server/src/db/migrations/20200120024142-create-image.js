@@ -1,15 +1,18 @@
 'use strict';
+
+const uuid = require('uuid');
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Images', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: () => uuid()
       },
       idPost: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         allowNull: false,
         references: {
           model: 'Posts',

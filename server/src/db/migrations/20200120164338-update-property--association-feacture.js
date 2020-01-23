@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.changeColumn('Properties', 'idFeature', {
-      type: Sequelize.INTEGER,
+      type: Sequelize.UUID,
       unique: true,
       references: {
         model: 'PropertyFeatures',

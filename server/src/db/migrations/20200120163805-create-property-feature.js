@@ -1,12 +1,15 @@
 'use strict';
+
+const uuid = require('uuid');
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('PropertyFeatures', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: () => uuid()
       },
       countRooms: {
         type: Sequelize.INTEGER,

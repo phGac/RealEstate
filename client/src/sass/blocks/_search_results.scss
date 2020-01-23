@@ -23,6 +23,7 @@
         }
 
         & .picture {
+            max-height: 180px;
             & .info {
                 position: absolute;
                 margin-top: -42px;
@@ -32,8 +33,17 @@
             }
         }
         & .wrap-info {
+            display: block;
+            width: calc(100% - 251px);
+            max-height: 180px;
             padding-left: 10px;
             font-size: 14px;
+            color: black;
+
+            @include laptop {
+                cursor: pointer;
+            }
+
             & .property_info {
                 margin-top: 20px;
                 & > div {

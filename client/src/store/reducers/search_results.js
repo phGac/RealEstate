@@ -1,7 +1,7 @@
 const initialStore = [
     {
         id: 1,
-        picture: { url: 'https://via.placeholder.com/250x180' },
+        picture: { url: '/img/property_00.png' },
         property: {
             type: 'house',
             status: 'Sell',
@@ -24,7 +24,7 @@ const initialStore = [
     },
     {
         id: 2,
-        picture: { url: 'https://via.placeholder.com/250x180' },
+        picture: { url: '/img/property_00.png' }, // https://via.placeholder.com/250x180
         property: {
             type: 'house',
             status: 'Sell',

@@ -75,6 +75,7 @@
                     padding: 0 1px 5px;
                     margin-right: 45px;
                     border-bottom: 2px solid transparent;
+                    outline: none;
 
                     @include laptop {
                         transition: 300ms;
@@ -107,10 +108,12 @@
                 display: inline-block;
                 color: $header-text-color;
                 font-size: 16px;
+                outline: none;
             }
             
             & .register {
                 display: none;
+                outline: none;
                 @include tablet {
                     display: block;
                     

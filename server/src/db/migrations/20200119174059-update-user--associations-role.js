@@ -5,7 +5,7 @@ module.exports = {
     return Promise.all([
       //queryInterface.removeConstraint('Users', 'Users_roleId_foreign_idx'),
       queryInterface.addColumn('Users', 'roleId', {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         allowNull: false,
         references: {
           model: 'Roles',
