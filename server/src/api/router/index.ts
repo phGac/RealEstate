@@ -1,17 +1,11 @@
-import { Router } from 'express';
+import express, { Router } from 'express';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
-import sessionRoutes from './session_routes';
-import registrationRouter from './registration_routes';
-import userRouter from './user_routes';
-import propertyRouter from './property_routes';
+import usersRouter from './users';
 
-export default () => {
-    const router = Router();
+const router = Router();
 
-    sessionRoutes(router);
-    registrationRouter(router);
-    userRouter(router);
-    propertyRouter(router);
+usersRouter(router);
 
-    return router;
-};
+export default router;

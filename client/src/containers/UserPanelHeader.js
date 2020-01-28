@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import SearchFormResults from '../components/SearchFormResults';
+import UserPanelHeader from '../components/UserPanelHeader';
 
 const mapStateToProps = state => ({
-    searched: state.searched,
+    session: state.session,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -12,4 +12,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(SearchFormResults);
+)(UserPanelHeader);

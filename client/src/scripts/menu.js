@@ -14,4 +14,11 @@ export default {
             }
         }
     },
+    toggleUserMenu: () => {
+        const user = document.querySelector('#header .user-panel .user-menu');
+        console.log(user);
+        if(user) {
+            user.classList.toggle('show');
+        }
+    }
 };

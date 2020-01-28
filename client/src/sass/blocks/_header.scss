@@ -1,8 +1,9 @@
 #header {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
+    min-height: 70px;
     padding: 0;
     padding-left: 20px;
     background-color: $header-bg-color;
@@ -13,10 +14,6 @@
     flex-flow: row nowrap;
     justify-content: space-between;
     
-    &.fixed {
-        position: fixed;
-    }
-    
     @include laptop {
         padding: 0 53px;
     }
@@ -24,8 +21,14 @@
     & .logo {
         flex-grow: 1;
         float: left;
-        padding: 0;
-        padding-top: 10px;
+        & .helper {
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+        & img {
+            vertical-align: middle;
+        }
     }
 
     & #btn-menu {
@@ -92,6 +95,7 @@
         & .header-nav-right {
             flex-grow: 1;
             & .user-panel {
+                height: 100%;
                 @include mobile-xl {
                     display: flex;
                     flex-flow: row nowrap;
@@ -102,38 +106,86 @@
                         justify-content: flex-end;
                     }
                 }
-            }
 
-            & .login {
-                display: inline-block;
-                color: $header-text-color;
-                font-size: 16px;
-                outline: none;
-            }
-            
-            & .register {
-                display: none;
-                outline: none;
-                @include tablet {
-                    display: block;
-                    
-                    min-width: 50px;
-                    text-align: center;
-                    color: $header-text-color;
+                & #user-menu {
+                    border: none;
+                    background-color: transparent;
+                    color: rgb(255, 255, 255);
+                    font-size: 18px;
+                    height: 100%;
 
                     @include laptop {
-                        padding: 8px 15px;
-                        margin-left: 25px;
-                        min-width: 130px;
-                        transition: all 300ms;
+                        cursor: pointer;
+                    }
+                }
 
+                & .user-menu {
+                    @include reset-list;
+                    display: none;
+                    position: absolute;
+                    top: 70px;
+                    min-width: 120px;
+                    border: 1px solid blue;
+                    background-color: white;
+                    text-align: center;
+
+                    &.show {
+                        display: block;
+                    }
+
+                    & li {
+                        height: 50px;
                         &:hover {
-                            color: #57d4b5;
-                            transform: scale(1.6, 1.6);
+                            box-shadow: 1px 1px 1px rgb(58, 54, 54) inset;
+                        }
+
+                        & > ul {
+                            @include reset-list;
+                            display: none;
+                            position: absolute;
+                            border: 1px solid red;
+                            margin-top: -50px;
+                            transform: translateX(-100%);
+                        }
+
+                        &:hover > ul {
+                            display: block;
+                        }
+                    }
+                }
+
+                & .login {
+                    display: inline-block;
+                    color: $header-text-color;
+                    font-size: 16px;
+                    outline: none;
+                }
+                
+                & .register {
+                    display: none;
+                    outline: none;
+                    @include tablet {
+                        display: inline-block;
+                        
+                        min-width: 50px;
+                        text-align: center;
+                        color: $header-text-color;
+    
+                        @include laptop {
+                            padding: 8px 15px;
+                            margin-left: 25px;
+                            min-width: 130px;
+                            transition: all 300ms;
+    
+                            &:hover {
+                                color: #57d4b5;
+                                transform: scale(1.6, 1.6);
+                            }
                         }
                     }
                 }
             }
+
         }
         
     }

@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import UserPanelHeader from '../containers/UserPanelHeader';
+
 import menuScripts from '../scripts/menu';
 
-function Header({ session }) {
+function Header() {
     return (
     <header id="header">
         <div className="logo">
+            <span className="helper"></span>
             <img src="img/logo.png" alt="Logo"/>
         </div>
         <button id="btn-menu" onClick={() => menuScripts.toggleNavMenu()}>p</button>
@@ -26,18 +29,7 @@ function Header({ session }) {
                 </li>
             </ul>
             <div className="header-nav-right">
-                {session.logged ?
-                    (
-                        <div className="user-panel">
-                            <p>{session.user.firstName}</p>
-                        </div>
-                    ) : (
-                        <div className="user-panel">
-                            <Link to="/login" className="login">Login</Link>
-                            <Link to="/register" className="register">Registro</Link>
-                        </div>
-                    )
-                }
+                <UserPanelHeader />
             </div>
         </nav>
     </header>

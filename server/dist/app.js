@@ -3,8 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const config_1 = __importDefault(require("./config"));
 const express_1 = __importDefault(require("express"));
+const config_1 = __importDefault(require("./config"));
 const loaders_1 = __importDefault(require("./loaders"));
 const logger_1 = __importDefault(require("./loaders/logger"));
 async function startServer() {

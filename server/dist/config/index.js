@@ -18,7 +18,7 @@ exports.default = {
     api: {
         prefix: '/api',
         requireLogin: false,
-        secret: 'jhvksdakjcuhjabxxczkjn',
+        secret: 'lnfeliwnlwanlndWAWnwdqounwuuWAFDEAidiwaddawkWADEQ45wd65dwwd1sadadwdwaef1GRSEFssasewa454w8551awddawjnnwarjdawekeocoawmawdowqdowdao',
         NotNeedAuth: [
             '/api/login',
             '/api/register',

@@ -1,7 +1,7 @@
-import config from './config';
 import express from 'express';
+import config from './config';
 import loaders from './loaders';
-import Logger from './loaders/logger';
+import logger from './loaders/logger';
 
 async function startServer() {
     const app = express();
@@ -10,11 +10,11 @@ async function startServer() {
 
     app.listen(config.port, (err: any) => {
         if (err) {
-            Logger.error(err);
+            logger.error(err);
             process.exit(1);
             return;
         }
-        Logger.info(`⚓  Server listening on port: ${config.port}  ⚓`);
+        logger.info(`⚓  Server listening on port: ${config.port}  ⚓`);
     });
 }
 

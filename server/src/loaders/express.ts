@@ -4,14 +4,11 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import passport from 'passport';
 import session from 'express-session';
-import flash from 'connect-flash';
 
-import apiRouter from '../api/router';
+import apiRoutes from '../api/router';
+import passportConfig from '../api/middleware/passport';
 
-import passportMiddle from '../middleware/passport';
-import authUserMiddle from '../api/middleware/auth_user';
-
-import passportConfig from '../config/passport_config';
+import RequestNotFound, {RequestValue} from './exceptions/RequestNotFound';
 
 export default ({ app }: { app: express.Application }) => {
     app.get('/status', (req, res) => {
@@ -24,7 +21,6 @@ export default ({ app }: { app: express.Application }) => {
     app.use(cors());
     app.use(require('method-override')('_method'));
     app.use(bodyParser.urlencoded({ extended: true }));
-    app.use(flash());
 
     // sessions
     app.use(session({
@@ -33,24 +29,28 @@ export default ({ app }: { app: express.Application }) => {
         saveUninitialized: false,
         cookie: { secure: false },
     }));
-    passport.use(passportMiddle());
-    passportConfig(passport);
     app.use(passport.initialize());
     app.use(passport.session());
-    app.use(authUserMiddle);
+    passportConfig(passport);
 
     // routes
-    app.use(config.api.prefix, apiRouter());
+    app.use(apiRoutes);
 
     /// catch 404 forward to error handler
     app.use((req, res, next) => {
-        const err = new Error('Not Found');
-        //err.status = 404; // status not found
+        const err = new RequestNotFound();
+        err.request = {
+            url: req.url,
+            method: req.method,
+            query: req.query,
+            bodyParams: req.body,
+            headers: req.headers,
+        };
         next(err);
     });
 
     /// error handlers
-    app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
+    app.use((err: RequestNotFound, req: express.Request, res: express.Response, next: express.NextFunction) => {
         if (err.name === 'UnauthorizedError') {
             return res
                 .status(404)
@@ -59,12 +59,13 @@ export default ({ app }: { app: express.Application }) => {
         }
         return next(err);
     });
-    app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
-        //res.status(err.status || 500); 404
-        res.json({
-            errors: {
-                message: err.message,
-            },
-        });
+
+    app.use((err: RequestNotFound, req: express.Request, res: express.Response, next: express.NextFunction) => {
+        res.status(err.status)
+            .json({
+                errors: {
+                    message: err.message,
+                },
+            });
     });
 };

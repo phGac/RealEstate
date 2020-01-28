@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import v8n from 'v8n';
+//import v8n from 'v8n';
 
 const blur = (name) => {
     const input = document.querySelector(`#login-form input[name="${name}"]`);
@@ -8,9 +8,9 @@ const blur = (name) => {
         input.classList.toggle('has-val');
 }
 
-function LoginForm() {
+function LoginForm({ login }) {
     return(
-    <form action="" onSubmit={validate} id="login-form">
+    <form action="" onSubmit={login} id="login-form">
         <h1>Login</h1>
         <div className="input-wrap">
             <label htmlFor="email">Email</label>
@@ -34,6 +34,7 @@ function LoginForm() {
     </form>
 )}
 
+/*
 function validate(e) {
     e.preventDefault();
     
@@ -52,5 +53,6 @@ function validate(e) {
 
     return false;
 }
+*/
 
 export default LoginForm;

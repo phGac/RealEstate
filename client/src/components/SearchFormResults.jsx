@@ -5,6 +5,7 @@ import menuScripts from '../scripts/menu';
 
 class SearchFormResults extends Component {
     render() {
+        const { searched } = this.props;
         return (
             <section className="search-container show">
                 <button className="close" onClick={() => menuScripts.toggleSearchMenu()}>X</button>
@@ -12,50 +13,52 @@ class SearchFormResults extends Component {
                     <div className="filters">
                         <form className="search-form">
                             <select name="type" id="">
-                                <option value="">todo</option>
-                                <option value="">casa</option>
-                                <option value="">departamento</option>
-                                <option value="">oficina</option>
+                                <option value="">Tipo de Propiedad</option>
+                                <option value="house">casa</option>
+                                <option value="apartment">departamento</option>
+                                <option value="officine">oficina</option>
                             </select>
                             <select name="region" id="">
-                                <option value="">todo</option>
-                                <option value="">metropolitana</option>
+                                <option value="">Región</option>
+                                <option value="metropolitana">metropolitana</option>
                             </select>
-                            <select name="comuna" id="">
-                                <option value="">todo</option>
-                                <option value="">Las Condes</option>
-                                <option value="">La Florida</option>
-                                <option value="">Puente Alto</option>
+                            <select name="commune" id="">
+                                <option value="">Comuna</option>
+                                <option value="Las Condes">Las Condes</option>
+                                <option value="La Florida">La Florida</option>
+                                <option value="Puente Alto">Puente Alto</option>
                             </select>
-                            <select name="precio-min" id="">
-                                <option value="">cero</option>
-                                <option value="">50.000</option>
-                                <option value="">70.000</option>
-                                <option value="">250.000</option>
-                                <option value="">300.000</option>
-                                <option value="">800.000</option>
+                            <select name="price-min" id="">
+                                <option value="">Precio minimo</option>
+                                <option value="50000">50.000</option>
+                                <option value="70000">70.000</option>
+                                <option value="250000">250.000</option>
+                                <option value="300000">300.000</option>
+                                <option value="800000">800.000</option>
                             </select>
-                            <select name="precio-max" id="">
-                                <option value="">sin definir</option>
-                                <option value="">50.000</option>
-                                <option value="">70.000</option>
-                                <option value="">250.000</option>
-                                <option value="">300.000</option>
-                                <option value="">800.000</option>
+                            <select name="price-max" id="">
+                                <option value="">Precio máximo</option>
+                                <option value="50000">50.000</option>
+                                <option value="70000">70.000</option>
+                                <option value="250000">250.000</option>
+                                <option value="300000">300.000</option>
+                                <option value="800000">800.000</option>
                             </select>
-                            <select name="habitaciones-min" id="">
-                                <option value="">1</option>
-                                <option value="">2</option>
-                                <option value="">3</option>
-                                <option value="">4</option>
-                                <option value="">5</option>
+                            <select name="beds-min" id="">
+                                <option value="">Dormitorios Min</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
-                            <select name="habitaciones-max" id="">
-                                <option value="">1</option>
-                                <option value="">2</option>
-                                <option value="">3</option>
-                                <option value="">4</option>
-                                <option value="">5</option>
+                            <select name="beds-max" id="">
+                                <option value="">Dormitorios Max</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                             <input type="submit" value="Filtrar" />
                         </form>
@@ -64,31 +67,31 @@ class SearchFormResults extends Component {
                         <div className="searched">
                             <div className="item">
                                 <p className="name">Busqueda:</p>
-                                <p className="value">Santiago</p>
+                                <p className="value">{ searched.searched }</p>
                             </div>
                             <div className="item">
                                 <p className="name">Resultados:</p>
-                                <p className="value">215</p>
+                                <p className="value">{ searched.results.count.total }</p>
                             </div>
                             <div className="item">
-                                <p className="name">Tipo Inmueble:</p>
-                                <p className="value">casa</p>
+                                <p className="name">Tipo Propiedad:</p>
+                                <p className="value">{ searched.property.type }</p>
                             </div>
                             <div className="item">
-                                <p className="name">Habitaciones (min):</p>
-                                <p className="value">0</p>
+                                <p className="name">Dormitorios (min):</p>
+                                <p className="value">{ searched.property.beds.min }</p>
                             </div>
                             <div className="item">
-                                <p className="name">Habitaciones (max):</p>
-                                <p className="value">3</p>
+                                <p className="name">Dormitorios (max):</p>
+                                <p className="value">{ searched.property.beds.max }</p>
                             </div>
                             <div className="item">
                                 <p className="name">Precio (min):</p>
-                                <p className="value">0</p>
+                                <p className="value">{ searched.property.price.min }</p>
                             </div>
                             <div className="item">
                                 <p className="name">Precio (max):</p>
-                                <p className="value">todo</p>
+                                <p className="value">{ searched.property.price.max }</p>
                             </div>
                         </div>
                     </div>
